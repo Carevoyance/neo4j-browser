@@ -47,7 +47,7 @@ angular.module('neo4jApp.settings', ['neo4jApp.utils'])
     showVizDiagnostics: false
     acceptsReplies: false
     enableMotd: true
-    initCmd: ":play start"
+    initCmd: ""
     refreshInterval: 10 # in seconds
     userName: "Graph Friend"
     theme: "normal"
