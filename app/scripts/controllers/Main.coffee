@@ -181,12 +181,16 @@ angular.module('neo4jApp.controllers')
     'Utils'
     'Settings'
     'Editor'
-    ($scope, Utils, Settings, Editor) ->
+    'fullscreenService'
+    ($scope, Utils, Settings, Editor, fullscreenService) ->
       $scope.unauthorized = yes
 
       if cmdParam = Utils.getUrlParam('cmd', window.location.href)
-        return unless cmdParam[0] is 'play'
         cmdCommand = "#{Settings.cmdchar}#{cmdParam[0]} "
         cmdArgs = Utils.getUrlParam('arg', decodeURIComponent(window.location.href)) || []
-        Editor.setContent(cmdCommand + cmdArgs.join(' '))
+        # Editor.setContent(cmdCommand + cmdArgs.join(' '))
+        # Editor.setContent(cmdParam[0] + cmdArgs.join(' '))
+        # Editor.execCurrent()
+        Editor.execScript(decodeURIComponent(cmdParam[0]))
+        # fullscreenService.display(document.body)
   ])
