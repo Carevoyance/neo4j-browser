@@ -74,6 +74,212 @@ angular.module('neo4jApp.services')
       { color: '#FFD86E', 'border-color': '#EDBA39', 'text-color-internal': '#604A0E' }
     ]
 
+    @defaultStyles = """
+        node {
+          diameter: 80px;
+          border-width: 2px;
+          caption: '{id}';
+          font-size: 10px;
+        }
+        relationship {
+          color: #D4D6D7;
+          shaft-width: 3px;
+          font-size: 8px;
+          padding: 3px;
+          text-color-external: #000000;
+          text-color-internal: #FFFFFF;
+          caption: '<type>';
+        }
+
+        node.School {
+          color: #e48b6e;
+          border-color: #DC4717;
+          text-color-internal: #FFFFFF;
+          diameter: 100px;
+          caption: '{name}';
+        }
+        node.Group {
+          color: #30B6AF;
+          border-color: #46A39E;
+          text-color-internal: #FFFFFF;
+          caption: '{name}';
+        }
+
+        node.Provider {
+          color: #a6cfe2;
+          border-color: #76b7d2;
+          text-color-internal: #000000;
+          font-size: 10px;
+          diameter: 60px;
+          caption: '{last_name_legal_name}, {first_name}';
+        }
+        node.Physician {
+          color: #3987a8;
+          border-color: #215165;
+          text-color-internal: #FFFFFF;
+          font-size: 12px;
+          diameter: 80px;
+          caption: '{last_name_legal_name}, {first_name}';
+        }
+        node.PostGrad {
+          color: #df410e;
+          border-color: #c3390c;
+          text-color-internal: #FFFFFF;
+          font-size: 12px;
+          diameter: 100px;
+          caption: '{specialty} ({program})';
+        }
+        node.Hospital {
+          color: #FF756E;
+          border-color: #E06760;
+          text-color-internal: #FFFFFF;
+          caption: '{organization_name_legal_business_name}';
+        }
+        node.Taxonomy {
+          color: #6DCE9E;
+          border-color: #60B58B;
+          text-color-internal: #FFFFFF;
+          caption: '{type}';
+        }
+        node.County {
+          color: #FF756E;
+          border-color: #E06760;
+          text-color-internal: #FFFFFF;
+          caption: '{name}';
+        }
+        node.Phone {
+          color: #DE9BF9;
+          border-color: #BF85D6;
+          text-color-internal: #FFFFFF;
+          caption: 'Same phone';
+        }
+        node.Company {
+          color: #FFD86E;
+          border-color: #EDBA39;
+          text-color-internal: #604A0E;
+          caption: '{name}';
+        }
+        node.ResearchStudy {
+          color: #A5ABB6;
+          border-color: #9AA1AC;
+          text-color-internal: #FFFFFF;
+          caption: '{name_of_study}';
+        }
+
+        relationship.IS_A {
+          color: #A5ABB6;
+          shaft-width: 1px;
+          font-size: 8px;
+          padding: 3px;
+          text-color-external: #000000;
+          text-color-internal: #FFFFFF;
+          caption: '<type>';
+        }
+        relationship.IS_IN {
+          color: #A5ABB6;
+          shaft-width: 1px;
+          font-size: 8px;
+          padding: 3px;
+          text-color-external: #000000;
+          text-color-internal: #FFFFFF;
+          caption: '<type>';
+        }
+        relationship.REFERS_TO {
+          color: #FF756E;;
+          caption:{uniques};
+        }
+        relationship.PRACTICES_IN {
+          color: #A5ABB6;
+          shaft-width: 1px;
+          font-size: 8px;
+          padding: 3px;
+          text-color-external: #000000;
+          text-color-internal: #FFFFFF;
+          caption: '<type>';
+        }
+        relationship.PRACTICES_AT {
+          color: green;
+          shaft-width: 1px;
+          font-size: 8px;
+          padding: 3px;
+          text-color-external: #000000;
+          text-color-internal: #FFFFFF;
+          caption: '<type>';
+        }
+        relationship.ASSITED_AT_ORG {
+          color: #6DCE9E;
+          border-color: #60B58B;
+          text-color-internal: #FFFFFF;
+          shaft-width: 8px;
+        }
+        relationship.ATTENDED_AT_ORG {
+          color: #FF756E;
+          border-color: #E06760;
+          text-color-internal: #FFFFFF;
+          shaft-width: 8px;
+        }
+        relationship.ATTENDED_WITH_OP {
+          color: #68BDF6;
+          border-color: #5CA8DB;
+          text-color-internal: #FFFFFF;
+          shaft-width: 5px;
+        }
+        relationship.OPERATED_AT_ORG {
+          color: #DE9BF9;
+          border-color: #BF85D6;
+          text-color-internal: #FFFFFF;
+          shaft-width: 5px;
+        }
+        relationship.ASSISTED_WITH_OP {
+          color: #DE9BF9;
+          border-color: #BF85D6;
+          text-color-internal: #FFFFFF;
+          shaft-width: 13px;
+        }
+        relationship.ATTENDED_MEDICAL_SCHOOL {
+          shaft-width: 13px;
+          color: #FFD86E;
+          border-color: #EDBA39;
+          text-color-internal: #604A0E;
+        }
+        relationship.ATTENDED_FELLOWSHIP {
+          shaft-width: 13px;
+          color: #FFD86E;
+          border-color: #EDBA39;
+          text-color-internal: #604A0E;
+        }
+        relationship.ATTENDED_RESIDENCY {
+          shaft-width: 13px;
+          color: #FFD86E;
+          border-color: #EDBA39;
+          text-color-internal: #604A0E;
+        }
+        relationship.ATTENDED_INTERNSHIP {
+          shaft-width: 13px;
+          color: #FFD86E;
+          border-color: #EDBA39;
+          text-color-internal: #604A0E;
+        }
+        relationship.IN_GROUP_PRACTICE {
+          shaft-width: 8px;
+          color: #FB95AF;
+          border-color: #E0849B;
+          text-color-internal: #FFFFFF;
+        }
+        relationship.HAS_PHONE {
+          shaft-width: 8px;
+          color: #FB95AF;
+          border-color: #E0849B;
+          text-color-internal: #FFFFFF;
+        }
+        relationship.REFERS_TO {
+          shaft-width: 1px;
+          color: #FF756E;
+          border-color: #E06760;
+          text-color-internal: #FFFFFF;
+        }
+    """
+
     class Selector
       constructor: (@tag, @classes = []) ->
 
@@ -116,7 +322,7 @@ angular.module('neo4jApp.services')
       constructor: (@storage) ->
         @rules = []
         try
-          @loadRules(@storage?.get('grass'))
+          @loadRules( @parse(provider.defaultStyles) ) # || @storage?.get('grass')
         catch e
 
       # Generate a selector string from an object (node or rel)
@@ -228,7 +434,7 @@ angular.module('neo4jApp.services')
 
       reloadFromStorage: ->
         try
-          @loadRules(@storage?.get('grass'))
+          @loadRules( @parse(provider.defaultStyles) ) #@storage?.get('grass')
         catch e
           return
 
