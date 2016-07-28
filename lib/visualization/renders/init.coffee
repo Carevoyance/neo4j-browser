@@ -25,13 +25,30 @@ do ->
 
   nodeRingStrokeSize = 8
 
+  getUrlParam = (name, theLocation) ->
+    return no unless theLocation
+    out = []
+    re = new RegExp('[\\?&]' + name + '=([^&#]*)', 'g')
+    while (results = re.exec(theLocation)) isnt null
+      out.push(results[1]) if results and results[1]
+    return undefined if not out.length
+    out
+
   nodeOutline = new neo.Renderer(
     onGraphChange: (selection, viz) ->
+
+      selectedNode = getUrlParam('providerId', window.location.href)
+      if (selectedNode.length > 0)
+        selectedNode = selectedNode[0]
+
       circles = selection.selectAll('circle.outline').data((node) -> [node])
 
       circles.enter()
       .append('circle')
       .classed('outline', true)
+      .classed('queriedNode', (node) ->
+        node.propertyMap['providerId'] == selectedNode
+      )
       .attr
         cx: 0
         cy: 0
