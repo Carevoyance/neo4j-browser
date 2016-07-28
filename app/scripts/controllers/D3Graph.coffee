@@ -146,6 +146,11 @@ angular.module('neo4jApp.controllers')
           getNodeNeigbours(d)
           $rootScope.$apply() unless $rootScope.$$phase
         )
+        .on('nodeInfo', (d) ->
+          if d && d.propertyMap && d.propertyMap.providerId
+            return window.parent.navigateToProvider(d.propertyMap.providerId)
+          return d
+        )
         .on('deleteNode', (d) ->
           Editor.setContent "MATCH (n) WHERE id(n) = " + d.id + " DETACH DELETE n"
           $scope.focusEditor()
