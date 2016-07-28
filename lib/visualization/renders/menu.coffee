@@ -116,7 +116,7 @@ do ->
   )
 
   donutGoToProvider = new neo.Renderer(
-    onGraphChange: (selection, viz) -> createMenuItem(selection, viz, 'nodeInfo', 4, 'info_node', [0, 0], '\uf059', 'See provider profile')
+    onGraphChange: (selection, viz) -> createMenuItem(selection, viz, 'nodeInfo', 4, 'info_node', [0, 0], '\uf0f0', 'See provider profile')
 
     onTick: noop
   )
