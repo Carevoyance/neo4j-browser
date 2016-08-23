@@ -30,6 +30,7 @@ angular.module('neo4jApp.settings', ['neo4jApp.utils'])
       version: "#{baseURL}/db/manage/server/version"
       jmx: "#{baseURL}/db/manage/server/jmx/query"
       rest: restAPI
+      cvAPI: "#{baseURL}/api/graph/stored_query"
       cypher: "#{restAPI}/cypher"
       transaction: "#{restAPI}/transaction"
       authUser: "#{baseURL}/user"

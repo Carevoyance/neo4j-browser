@@ -23,15 +23,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 angular.module('neo4jApp.services')
   .factory 'ProtocolFactory', [
     'Settings'
-    'CypherTransactionREST'
-    'CypherTransactionBolt'
+    'CypherTransactionCV'
     'UtilityREST'
     'UtilityBolt'
-    (Settings, CypherTransactionREST, CypherTransactionBolt, UtilityREST, UtilityBolt) ->
+    (Settings, CypherTransactionCV, UtilityREST, UtilityBolt) ->
       {
         getCypherTransaction: (useBolt = Settings.useBolt) ->
-          return new CypherTransactionBolt() if useBolt
-          return new CypherTransactionREST()
+          return new CypherTransactionCV()
 
         getAuthService: (useBolt = Settings.useBolt) ->
           return UtilityBolt if useBolt
