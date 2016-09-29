@@ -147,8 +147,8 @@ angular.module('neo4jApp.controllers')
           $rootScope.$apply() unless $rootScope.$$phase
         )
         .on('nodeInfo', (d) ->
-          if d && d.propertyMap && d.propertyMap.providerId
-            return window.parent.navigateToProvider(d.propertyMap.providerId)
+          if d && d.propertyMap && d.propertyMap.id
+            return window.parent.navigateToProvider(d.propertyMap.id)
           return d
         )
         .on('deleteNode', (d) ->
