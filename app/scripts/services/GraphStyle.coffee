@@ -102,7 +102,7 @@ angular.module('neo4jApp.services')
           color: #30B6AF;
           border-color: #46A39E;
           text-color-internal: #FFFFFF;
-          caption: '{name}';
+          caption: '{organization_name}';
         }
 
         node.Provider {
@@ -111,7 +111,7 @@ angular.module('neo4jApp.services')
           text-color-internal: #000000;
           font-size: 10px;
           diameter: 60px;
-          caption: '{last_name_legal_name}, {first_name}';
+          caption: '{provider_last_name_legal_name}, {provider_first_name}';
         }
         node.Physician {
           color: #3987a8;
@@ -119,7 +119,7 @@ angular.module('neo4jApp.services')
           text-color-internal: #FFFFFF;
           font-size: 12px;
           diameter: 80px;
-          caption: '{last_name_legal_name}, {first_name}';
+          caption: '{provider_last_name_legal_name}, {provider_first_name}';
         }
         node.PostGrad {
           color: #df410e;
@@ -145,7 +145,7 @@ angular.module('neo4jApp.services')
           color: #FF756E;
           border-color: #E06760;
           text-color-internal: #FFFFFF;
-          caption: '{name}';
+          caption: '{namelsad}';
         }
         node.Phone {
           color: #DE9BF9;
@@ -185,8 +185,8 @@ angular.module('neo4jApp.services')
           caption: '<type>';
         }
         relationship.REFERS_TO {
-          color: #FF756E;;
-          caption:{uniques};
+          color: #FF756E;
+          caption: '{unique_beneficiaries} Unique Beneficiaries';
         }
         relationship.PRACTICES_IN {
           color: #A5ABB6;
