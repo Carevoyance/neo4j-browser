@@ -133,7 +133,7 @@ angular.module('neo4jApp.services')
           color: #FF756E;
           border-color: #E06760;
           text-color-internal: #FFFFFF;
-          caption: '{organization_name_legal_business_name}';
+          caption: '{provider_organization_name_legal_business_name}';
         }
         node.Taxonomy {
           color: #6DCE9E;
@@ -558,5 +558,3 @@ angular.module('neo4jApp.services')
     ]
     @
   ]
-
-
